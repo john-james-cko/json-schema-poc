@@ -1,0 +1,23 @@
+{
+  "screenTitle": "Clients API",
+  "getEndpoint": "string",
+  "postEndpoint": "string",
+  "putEndpoint": "string",
+  "schema": {
+    "headers": ["ID", "Name"],
+    "rows": [
+      {
+        "id": "client_xyz123xyz",
+        "columns": ["client_xyz123xyz", "John Doe"]
+      },
+      {
+        "id": "client_123213",
+        "columns": ["client_123213", "Also John Doe"]
+      },
+      {
+        "id": "client_qweqweqwe",
+        "columns": ["client_qweqweqwe", "Also also John Doe"]
+      }
+    ]
+  }
+}

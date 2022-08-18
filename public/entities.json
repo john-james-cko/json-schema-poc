@@ -1,0 +1,23 @@
+{
+  "screenTitle": "Entities API",
+  "getEndpoint": "string",
+  "postEndpoint": "string",
+  "putEndpoint": "string",
+  "schema": {
+    "headers": ["ID", "Name"],
+    "rows": [
+      {
+        "id": "entity_xyz123xyz",
+        "columns": ["entity_xyz123xyz", "Entity X"]
+      },
+      {
+        "id": "entity_123213",
+        "columns": ["entity_123213", "Entity Y"]
+      },
+      {
+        "id": "entity_qweqweqwe",
+        "columns": ["entity_qweqweqwe", "Entity Z"]
+      }
+    ]
+  }
+}
