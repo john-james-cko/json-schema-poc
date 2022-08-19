@@ -18,8 +18,8 @@ export const Routes: React.FC = () => {
 
   return (
     <>
-      {products.map((product) => {
-        return product.screens.map((screen) => {
+      {products.map((product) =>
+        product.screens.map((screen) => {
           if (isProductAvailable(product.product_name, screen.type)) {
             if (screen.type === "list") {
               return (
@@ -72,7 +72,7 @@ export const Routes: React.FC = () => {
 
           return null
         })
-      })}
+      )}
     </>
   )
 }

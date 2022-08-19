@@ -17,6 +17,7 @@ export const ProductProvider: React.FC<ProductProps> = ({ children }) => {
             new Set(product.screens.map((screen) => screen.get_schema_endpoint))
           )
 
+          // if one fails, all fail
           const fetchAll = async (endpoints: string[]) => {
             const responses = await Promise.all(endpoints.map((endpoint) => fetch(endpoint)))
 

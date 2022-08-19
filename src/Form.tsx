@@ -49,14 +49,14 @@ export const Form: React.FC<FormProps> = ({ data, product }) => {
           <label style={{ display: "block" }} htmlFor="field">
             Name
           </label>
-          <input name="field" value="" />
+          <input name="field" />
         </div>
 
         <div style={{ marginTop: "16px" }}>
           <label style={{ display: "block" }} htmlFor="field">
             Email
           </label>
-          <input name="field" value="" />
+          <input name="field" />
         </div>
       </form>
     </div>

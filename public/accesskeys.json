@@ -1,0 +1,28 @@
+{
+  "config": {
+    "product_name": "access_keys",
+    "screen_title": "Access keys",
+    "sidemenu_link_title": "Access keys",
+    "breadcrumb": "Access keys",
+    "screen_type": ["list"],
+    "path": "/clients/:clientId/access-keys",
+    "endpoints": {}
+  },
+  "schema": {
+    "headers": ["ID", "Name"],
+    "rows": [
+      {
+        "id": "ak_xyz123xyz",
+        "columns": ["ak_xyz123xyz", "John Doe"]
+      },
+      {
+        "id": "ak_123213",
+        "columns": ["ak_123213", "Also John Doe"]
+      },
+      {
+        "id": "ak_abc",
+        "columns": ["a_abc", "Also also John Doe"]
+      }
+    ]
+  }
+}

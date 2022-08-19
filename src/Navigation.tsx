@@ -1,33 +1,60 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, Route, generatePath } from "react-router-dom"
+import { ClientNavigation } from "./ClientNavigation"
+import { EntityNavigation } from "./EntityNavigation"
 import { ProductContex } from "./ProductContext"
+import { products } from "./products"
 
 export const Navigation: React.FC = () => {
   const queries = React.useContext(ProductContex)
 
+  const findProduct = (productName: string) =>
+    queries.find((query) =>
+      query.data?.find((screen) => screen.config.product_name === productName)
+    )
+
+  const isProductAvailable = (productName: string, type: "list" | "create" | "update" | "hybrid") =>
+    findProduct(productName)?.data?.find((screen) => screen.config.screen_type.includes(type))
+
   return (
     <nav>
       <ul>
-        {queries.map((query) => {
-          if (query.data) {
-            return query.data.map((screen) => {
-              if (
-                screen.config.screen_type.includes("list") ||
-                screen.config.screen_type.includes("hybrid")
-              ) {
-                return (
-                  <li key={screen.config.sidemenu_link_title}>
-                    <Link to={screen.config.path}>{screen.config.sidemenu_link_title}</Link>
-                  </li>
-                )
+        <Route path="/">
+          {products.map((product) =>
+            product.screens.map((screen) => {
+              if (isProductAvailable(product.product_name, screen.type)) {
+                if (screen.type === "list" || screen.type === "hybrid") {
+                  if (!screen.path.includes(":clientId")) {
+                    return (
+                      <li key={screen.path}>
+                        <Link to={screen.path}>
+                          {
+                            isProductAvailable(product.product_name, screen.type)?.config
+                              .sidemenu_link_title
+                          }
+                        </Link>
+                      </li>
+                    )
+                  }
+
+                  return null
+                }
+
+                return null
               }
 
               return null
             })
-          }
+          )}
+        </Route>
 
-          return null
-        })}
+        <Route path="/clients/:clientId">
+          <ClientNavigation />
+        </Route>
+
+        <Route path="/entities/:entityId">
+          <EntityNavigation />
+        </Route>
       </ul>
     </nav>
   )

@@ -6,7 +6,6 @@
     "screen_type": ["create", "update"],
     "path": "/",
     "endpoints": {
-      "get_schema_endpoint": "/clients.json",
       "submit_data_endpoint": "/form.json"
     }
   },

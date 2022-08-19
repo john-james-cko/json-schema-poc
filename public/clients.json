@@ -4,12 +4,9 @@
     "screen_title": "List of clients",
     "sidemenu_link_title": "Clients",
     "breadcrumb": "Client list",
-    "screen_type": "list",
+    "screen_type": ["list"],
     "path": "/",
-    "endpoints": {
-      "get_schema_endpoint": "/clients.json",
-      "submit_data_endpoint": "/form.json"
-    }
+    "endpoints": {}
   },
   "schema": {
     "headers": ["ID", "Name"],

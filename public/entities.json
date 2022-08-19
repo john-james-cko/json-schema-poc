@@ -4,11 +4,9 @@
     "screen_title": "List of entities",
     "sidemenu_link_title": "Entities",
     "breadcrumb": "Entity list",
-    "screen_type": "list",
+    "screen_type": ["list"],
     "path": "/entities",
-    "endpoints": {
-      "get_schema_endpoint": "/entities.json"
-    }
+    "endpoints": {}
   },
   "schema": {
     "headers": ["ID", "Name"],

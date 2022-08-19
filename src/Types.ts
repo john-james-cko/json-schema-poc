@@ -16,10 +16,8 @@ export type Data = {
     product_name: string
     screen_title: string
     screen_type: ("list" | "create" | "update" | "hybrid")[]
-    path: string
     sidemenu_link_title: string
     endpoints: {
-      get_schema_endpoint: string
       submit_data_endpoint: string
     }
   }
