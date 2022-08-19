@@ -1,8 +1,16 @@
 {
-  "screenTitle": "Clients API",
-  "getEndpoint": "string",
-  "postEndpoint": "string",
-  "putEndpoint": "string",
+  "config": {
+    "product_name": "clients",
+    "screen_title": "List of clients",
+    "sidemenu_link_title": "Clients",
+    "breadcrumb": "Client list",
+    "screen_type": "list",
+    "path": "/",
+    "endpoints": {
+      "get_schema_endpoint": "/clients.json",
+      "submit_data_endpoint": "/form.json"
+    }
+  },
   "schema": {
     "headers": ["ID", "Name"],
     "rows": [
@@ -15,8 +23,8 @@
         "columns": ["client_123213", "Also John Doe"]
       },
       {
-        "id": "client_qweqweqwe",
-        "columns": ["client_qweqweqwe", "Also also John Doe"]
+        "id": "client_abc",
+        "columns": ["client_abc", "Also also John Doe"]
       }
     ]
   }

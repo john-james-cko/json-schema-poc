@@ -1,8 +1,15 @@
 {
-  "screenTitle": "Entities API",
-  "getEndpoint": "string",
-  "postEndpoint": "string",
-  "putEndpoint": "string",
+  "config": {
+    "product_name": "entities",
+    "screen_title": "List of entities",
+    "sidemenu_link_title": "Entities",
+    "breadcrumb": "Entity list",
+    "screen_type": "list",
+    "path": "/entities",
+    "endpoints": {
+      "get_schema_endpoint": "/entities.json"
+    }
+  },
   "schema": {
     "headers": ["ID", "Name"],
     "rows": [
@@ -15,8 +22,8 @@
         "columns": ["entity_123213", "Entity Y"]
       },
       {
-        "id": "entity_qweqweqwe",
-        "columns": ["entity_qweqweqwe", "Entity Z"]
+        "id": "entity_abc",
+        "columns": ["entity_abc", "Entity Z"]
       }
     ]
   }

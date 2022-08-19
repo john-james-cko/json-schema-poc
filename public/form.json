@@ -1,0 +1,17 @@
+{
+  "config": {
+    "product_name": "clients",
+    "screen_title": "Client details",
+    "sidemenu_link_title": "Clients",
+    "screen_type": ["create", "update"],
+    "path": "/",
+    "endpoints": {
+      "get_schema_endpoint": "/clients.json",
+      "submit_data_endpoint": "/form.json"
+    }
+  },
+  "schema": {
+    "label": "Client details",
+    "form_fields": []
+  }
+}
