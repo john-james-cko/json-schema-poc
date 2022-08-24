@@ -1,0 +1,21 @@
+{
+  "config": {
+    "product_name": "access_keys",
+    "screen_title": "Access keys",
+    "screen_type": ["list"],
+    "endpoints": {}
+  },
+  "schema": {
+    "headers": ["ID", "Name"],
+    "rows": [
+      {
+        "id": "access_key_xyz123xyz",
+        "columns": ["access_key_xyz123xyz", "Access key one"]
+      },
+      {
+        "id": "access_key_123213",
+        "columns": ["access_key_123213", "Access key two"]
+      }
+    ]
+  }
+}

@@ -2,10 +2,7 @@
   "config": {
     "product_name": "clients",
     "screen_title": "List of clients",
-    "sidemenu_link_title": "Clients",
-    "breadcrumb": "Client list",
     "screen_type": ["list"],
-    "path": "/",
     "endpoints": {}
   },
   "schema": {

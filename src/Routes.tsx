@@ -2,36 +2,23 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { Form } from "./Form"
 import { List } from "./List"
-import { ProductContex } from "./ProductContext"
+import { PermissionContext } from "./PermissionContext"
 import { products } from "./products"
 
 export const Routes: React.FC = () => {
-  const queries = React.useContext(ProductContex)
-
-  const findProduct = (productName: string) =>
-    queries.find((query) =>
-      query.data?.find((screen) => screen.config.product_name === productName)
-    )
-
-  const isProductAvailable = (productName: string, type: "list" | "create" | "update" | "hybrid") =>
-    findProduct(productName)?.data?.find((screen) => screen.config.screen_type.includes(type))
+  const ctx = React.useContext(PermissionContext)
 
   return (
     <>
       {products.map((product) =>
         product.screens.map((screen) => {
-          if (isProductAvailable(product.product_name, screen.type)) {
+          if (ctx.hasPermission(screen.permission_config.get_action)) {
             if (screen.type === "list") {
               return (
                 <Route
-                  path={screen.path}
-                  children={
-                    <List
-                      data={isProductAvailable(product.product_name, screen.type)}
-                      product={product}
-                    />
-                  }
-                  key={screen.path}
+                  path={screen.route_path}
+                  children={<List product={product} screen={screen} />}
+                  key={screen.route_path}
                   exact
                 />
               )
@@ -40,14 +27,9 @@ export const Routes: React.FC = () => {
             if (screen.type === "create") {
               return (
                 <Route
-                  path={screen.path}
-                  children={
-                    <Form
-                      data={isProductAvailable(product.product_name, screen.type)}
-                      product={product}
-                    />
-                  }
-                  key={screen.path}
+                  path={screen.route_path}
+                  children={<Form product={product} type="create" screen={screen} />}
+                  key={screen.route_path}
                   exact
                 />
               )
@@ -56,21 +38,23 @@ export const Routes: React.FC = () => {
             if (screen.type === "update") {
               return (
                 <Route
-                  path={screen.path}
-                  children={
-                    <Form
-                      data={isProductAvailable(product.product_name, screen.type)}
-                      product={product}
-                    />
-                  }
-                  key={screen.path}
+                  path={screen.route_path}
+                  children={<Form product={product} type="update" screen={screen} />}
+                  key={screen.route_path}
                   exact
                 />
               )
             }
           }
 
-          return null
+          return (
+            <Route
+              path={screen.route_path}
+              children={<div>You have no permissions to view this route</div>}
+              key={screen.route_path}
+              exact
+            />
+          )
         })
       )}
     </>

@@ -1,0 +1,16 @@
+[
+  "get_client_list_schema",
+  "get_client_form_schema",
+  "create_client",
+  "update_client",
+  "delete_client",
+  "get_entity_list_schema",
+  "get_entity_form_schema",
+  "create_entity",
+  "update_entity",
+  "get_access_key_list_schema",
+  "get_access_key_form_schema",
+  "create_access_key",
+  "update_access_key",
+  "get_processing_channel_list_schema"
+]

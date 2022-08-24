@@ -2,10 +2,7 @@
   "config": {
     "product_name": "entities",
     "screen_title": "List of entities",
-    "sidemenu_link_title": "Entities",
-    "breadcrumb": "Entity list",
     "screen_type": ["list"],
-    "path": "/entities",
     "endpoints": {}
   },
   "schema": {

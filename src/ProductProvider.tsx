@@ -14,10 +14,11 @@ export const ProductProvider: React.FC<ProductProps> = ({ children }) => {
         queryKey: product.product_name,
         queryFn: () => {
           const uniqueEndpoints = Array.from(
-            new Set(product.screens.map((screen) => screen.get_schema_endpoint))
+            new Set(product.screens.map((screen) => screen.schema_config.get_schema_endpoint))
           )
 
           // if one fails, all fail
+          // remove promise all
           const fetchAll = async (endpoints: string[]) => {
             const responses = await Promise.all(endpoints.map((endpoint) => fetch(endpoint)))
 

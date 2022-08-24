@@ -1,0 +1,23 @@
+{
+  "config": {
+    "product_name": "entities",
+    "screen_title": "Entity details",
+    "screen_type": ["create", "update"],
+    "endpoints": {
+      "create_data_endpoint": "https://form.com"
+    }
+  },
+  "schema": {
+    "label": "Entity details",
+    "form_fields": [
+      {
+        "name": "entity_name",
+        "label": "Entity name",
+        "display_style": "textField",
+        "datatype": "string",
+        "required": true,
+        "default_value": ""
+      }
+    ]
+  }
+}

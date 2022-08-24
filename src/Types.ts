@@ -1,4 +1,6 @@
 type ListSchema = {
+  total: number
+  skip: number
   headers: string[]
   rows: {
     id: string
@@ -8,29 +10,40 @@ type ListSchema = {
 
 type FormSchema = {
   label: string
-  form_field: []
+  form_fields: []
 }
 
 export type Data = {
   config: {
-    product_name: string
     screen_title: string
-    screen_type: ("list" | "create" | "update" | "hybrid")[]
-    sidemenu_link_title: string
+    screen_type: ("list" | "create" | "update" | "hybrid" | "update_with_delete")[]
     endpoints: {
-      submit_data_endpoint: string
+      create_data_endpoint?: string
+      update_data_endpoint?: string
+      delete_data_endpoint?: string
     }
   }
   schema: ListSchema & FormSchema
 }
 
-export type Product = {
-  product_name: string
-  screens: {
-    type: "list" | "create" | "update" | "hybrid"
+export type Screen = {
+  type: "list" | "create" | "update" | "hybrid" | "update_with_delete"
+  sidemenu_link_title?: string
+  route_path: string
+  schema_config: {
     get_schema_endpoint: string
-    permission: string
-    path: string
-    breadcrumb: string
-  }[]
+    params?: string[]
+  }
+  permission_config: {
+    get_action: string
+    create_action?: string
+    update_action?: string
+    delete_action?: string
+  }
+}
+
+export type Product = {
+  product_id: string
+  product_name: string
+  screens: Screen[]
 }

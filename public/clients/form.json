@@ -1,0 +1,33 @@
+{
+  "config": {
+    "product_name": "clients",
+    "screen_title": "Client details",
+    "screen_type": ["create", "update"],
+    "endpoints": {
+      "create_data_endpoint": "/create",
+      "update_data_endpoint": "/update",
+      "delete_data_endpoint": "/delete"
+    }
+  },
+  "schema": {
+    "label": "Pricing profile details",
+    "form_fields": [
+      {
+        "name": "client_name",
+        "label": "Client name",
+        "display_style": "textField",
+        "datatype": "string",
+        "required": true,
+        "default_value": ""
+      },
+      {
+        "name": "client_email",
+        "label": "Client email",
+        "display_style": "textField",
+        "datatype": "string",
+        "required": true,
+        "default_value": ""
+      }
+    ]
+  }
+}

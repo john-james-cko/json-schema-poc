@@ -1,8 +1,9 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { QueryClient, QueryClientProvider } from "react-query"
-import { ProductProvider } from "./ProductProvider"
+import { ThemeDefaultProvider } from "@cko/primitives"
 import { Navigation } from "./Navigation"
 import { Routes } from "./Routes"
+import { PermissionProvider } from "./PermissionProvider"
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -15,28 +16,26 @@ const queryClient = new QueryClient({
 
 export const App = () => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <ProductProvider>
-          <div style={{ display: "flex", width: "100%" }}>
-            <div style={{ padding: "16px", width: "300px" }}>
-              <p>Navigation</p>
+    <ThemeDefaultProvider>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <PermissionProvider>
+            <div style={{ display: "flex", width: "100%" }}>
+              <div style={{ padding: "16px", width: "300px" }}>
+                <Navigation />
+              </div>
 
-              <Navigation />
+              <div style={{ padding: "16px", width: "100%" }}>
+                <Switch>
+                  <Routes />
+
+                  <Route children={<h1>Route doesn't exist</h1>} />
+                </Switch>
+              </div>
             </div>
-
-            <div style={{ padding: "16px", width: "100%" }}>
-              <p>Content</p>
-
-              <Switch>
-                <Routes />
-
-                <Route children={<h1>Route doesn't exist</h1>} />
-              </Switch>
-            </div>
-          </div>
-        </ProductProvider>
-      </BrowserRouter>
-    </QueryClientProvider>
+          </PermissionProvider>
+        </BrowserRouter>
+      </QueryClientProvider>
+    </ThemeDefaultProvider>
   )
 }

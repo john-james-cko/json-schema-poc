@@ -1,0 +1,14 @@
+{
+  "config": {
+    "product_name": "access_keys",
+    "screen_title": "Access keys details",
+    "screen_type": ["create", "update"],
+    "endpoints": {
+      "create_data_endpoint": "https://form.com"
+    }
+  },
+  "schema": {
+    "label": "Access key details",
+    "form_fields": []
+  }
+}

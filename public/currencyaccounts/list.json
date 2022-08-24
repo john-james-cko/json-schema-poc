@@ -1,0 +1,21 @@
+{
+  "config": {
+    "product_name": "currency_accounts",
+    "screen_title": "List of currency accounts",
+    "screen_type": ["list"],
+    "endpoints": {}
+  },
+  "schema": {
+    "headers": ["ID", "Name"],
+    "rows": [
+      {
+        "id": "currency_account_xyz123xyz",
+        "columns": ["currency_account_xyz123xyz", "CAD"]
+      },
+      {
+        "id": "currency_account_123213",
+        "columns": ["currency_account_123213", "USD"]
+      }
+    ]
+  }
+}

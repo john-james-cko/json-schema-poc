@@ -1,0 +1,65 @@
+{
+  "config": {
+    "product_name": "clients",
+    "screen_title": "Client details",
+    "screen_type": ["update"],
+    "endpoints": {
+      "create_data_endpoint": "/create",
+      "update_data_endpoint": "/update",
+      "delete_data_endpoint": "/delete"
+    }
+  },
+  "schema": {
+    "label": "Pricing profile details",
+    "form_fields": [
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "display_style": "idField",
+        "datatype": "string",
+        "value": "client_xyz123xyz",
+        "conditional_render": {
+          "conditions": [
+            {
+              "name": "profile_id",
+              "operator": "display-only-when-updating"
+            }
+          ]
+        }
+      },
+      {
+        "name": "date_created",
+        "label": "Created on",
+        "display_style": "dateField",
+        "datatype": "string",
+        "value": "2020-01-16T13:04:45Z",
+        "conditional_render": {
+          "conditions": [
+            {
+              "name": "date_created",
+              "operator": "display-only-when-updating"
+            }
+          ]
+        }
+      },
+      {
+        "name": "client_name",
+        "label": "Client name",
+        "display_style": "textField",
+        "datatype": "string",
+        "required": true,
+        "default_value": "",
+        "value": "Test name"
+      },
+      {
+        "name": "client_email",
+        "label": "Client email",
+        "display_style": "textField",
+        "datatype": "string",
+        "required": true,
+        "default_value": "",
+        "value": "Test email"
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "config": {
+    "product_name": "processing_channels",
+    "screen_title": "List of processing channel",
+    "screen_type": ["list"],
+    "endpoints": {}
+  },
+  "schema": {
+    "headers": ["ID", "Name"],
+    "rows": [
+      {
+        "id": "pc_xyz123xyz",
+        "columns": ["pc_xyz123xyz", "Processing channel X"]
+      },
+      {
+        "id": "pc_123213",
+        "columns": ["pc_123213", "Processing channel Y"]
+      }
+    ]
+  }
+}

@@ -1,22 +1,12 @@
 import React from "react"
 import { generatePath, Link, useParams } from "react-router-dom"
-import { ProductContex } from "./ProductContext"
+import { PermissionContext } from "./PermissionContext"
 import { products } from "./products"
 
 export const EntityNavigation = () => {
-  const queries = React.useContext(ProductContex)
-
   const params = useParams<{ entityId: string }>()
 
-  console.log(params)
-
-  const findProduct = (productName: string) =>
-    queries.find((query) =>
-      query.data?.find((screen) => screen.config.product_name === productName)
-    )
-
-  const isProductAvailable = (productName: string, type: "list" | "create" | "update" | "hybrid") =>
-    findProduct(productName)?.data?.find((screen) => screen.config.screen_type.includes(type))
+  const ctx = React.useContext(PermissionContext)
 
   return (
     <>
@@ -24,23 +14,34 @@ export const EntityNavigation = () => {
 
       {products.map((product) =>
         product.screens.map((screen) => {
-          if (isProductAvailable(product.product_name, screen.type)) {
+          if (ctx.hasPermission(screen.permission_config.get_action)) {
             if (screen.type === "list" || screen.type === "hybrid") {
-              if (screen.path.includes(":entityId")) {
+              if (screen.route_path.includes(":entityId")) {
                 return (
-                  <li key={screen.path}>
-                    <Link to={generatePath(screen.path, { entityId: params.entityId })}>
-                      {
-                        isProductAvailable(product.product_name, screen.type)?.config
-                          .sidemenu_link_title
-                      }
+                  <li key={screen.route_path}>
+                    <Link to={generatePath(screen.route_path, { entityId: params.entityId })}>
+                      {screen.sidemenu_link_title}
                     </Link>
                   </li>
                 )
               }
             }
 
-            return null
+            if (screen.type === "update" && product.product_name === "entities") {
+              if (screen.route_path.includes(":entityId")) {
+                return (
+                  <li key={screen.route_path} style={{ marginBottom: "8px" }}>
+                    <Link
+                      to={generatePath(screen.route_path, {
+                        entityId: params.entityId || "fallback",
+                      })}
+                    >
+                      {screen.sidemenu_link_title}
+                    </Link>
+                  </li>
+                )
+              }
+            }
           }
 
           return null
