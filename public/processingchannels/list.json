@@ -1,11 +1,11 @@
 {
   "config": {
-    "product_name": "processing_channels",
-    "screen_title": "List of processing channel",
-    "screen_type": ["list"],
-    "endpoints": {}
+    "screen_title": "Processing channel",
+    "screen_type": ["list"]
   },
   "schema": {
+    "total": 2,
+    "skip": 0,
     "headers": ["ID", "Name"],
     "rows": [
       {

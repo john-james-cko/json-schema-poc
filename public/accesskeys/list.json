@@ -1,11 +1,11 @@
 {
   "config": {
-    "product_name": "access_keys",
     "screen_title": "Access keys",
-    "screen_type": ["list"],
-    "endpoints": {}
+    "screen_type": ["list"]
   },
   "schema": {
+    "total": 2,
+    "skip": 0,
     "headers": ["ID", "Name"],
     "rows": [
       {

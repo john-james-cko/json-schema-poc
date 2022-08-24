@@ -1,5 +1,7 @@
+import React from "react"
 import { useQuery } from "react-query"
 import { useHistory, generatePath, useParams } from "react-router-dom"
+import { PermissionContext } from "./PermissionContext"
 import { Product, Screen, Data } from "./Types"
 
 type ListProps = {
@@ -11,6 +13,8 @@ export const List: React.FC<ListProps> = ({ product, screen }) => {
   const history = useHistory()
 
   const params = useParams<{ clientId: string; entityId: string } & { [param: string]: string }>()
+
+  const ctx = React.useContext(PermissionContext)
 
   const query = useQuery<Data>(screen.schema_config.get_schema_endpoint, async () => {
     let path: string[] = []
@@ -59,8 +63,6 @@ export const List: React.FC<ListProps> = ({ product, screen }) => {
 
       return path.join("&")
     }
-
-    console.log(getParams())
 
     try {
       const response = await fetch(
@@ -129,8 +131,10 @@ export const List: React.FC<ListProps> = ({ product, screen }) => {
         }}
       >
         <span>{query.data.config.screen_title}</span>
-
-        <button onClick={() => pushToCreate()}>Create</button>
+        {ctx.hasPermission(
+          product.screens.find((screen) => screen.type === "create")?.permission_config
+            .create_action
+        ) && <button onClick={() => pushToCreate()}>Create</button>}
       </div>
 
       <table style={{ width: "100%" }}>

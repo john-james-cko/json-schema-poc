@@ -3,7 +3,6 @@
   "get_client_form_schema",
   "create_client",
   "update_client",
-  "delete_client",
   "get_entity_list_schema",
   "get_entity_form_schema",
   "create_entity",
@@ -12,5 +11,6 @@
   "get_access_key_form_schema",
   "create_access_key",
   "update_access_key",
+  "delete_access_key",
   "get_processing_channel_list_schema"
 ]

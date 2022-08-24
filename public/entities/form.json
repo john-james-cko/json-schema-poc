@@ -1,10 +1,10 @@
 {
   "config": {
-    "product_name": "entities",
     "screen_title": "Entity details",
     "screen_type": ["create", "update"],
     "endpoints": {
-      "create_data_endpoint": "https://form.com"
+      "create_data_endpoint": "/create",
+      "update_data_endpoint": "/update"
     }
   },
   "schema": {

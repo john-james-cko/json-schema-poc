@@ -1,11 +1,11 @@
 {
   "config": {
-    "product_name": "clients",
-    "screen_title": "List of clients",
-    "screen_type": ["list"],
-    "endpoints": {}
+    "screen_title": "Clients",
+    "screen_type": ["list"]
   },
   "schema": {
+    "total": 3,
+    "skip": 0,
     "headers": ["ID", "Name"],
     "rows": [
       {

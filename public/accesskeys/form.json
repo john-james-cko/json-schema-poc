@@ -1,14 +1,24 @@
 {
   "config": {
-    "product_name": "access_keys",
     "screen_title": "Access keys details",
     "screen_type": ["create", "update"],
     "endpoints": {
-      "create_data_endpoint": "https://form.com"
+      "create_data_endpoint": "https://create",
+      "update_data_endpoint": "https://update",
+      "delete_data_endpoint": "https://delete"
     }
   },
   "schema": {
     "label": "Access key details",
-    "form_fields": []
+    "form_fields": [
+      {
+        "name": "access_key_name",
+        "label": "Access key name",
+        "display_style": "textField",
+        "datatype": "string",
+        "required": true,
+        "default_value": ""
+      }
+    ]
   }
 }

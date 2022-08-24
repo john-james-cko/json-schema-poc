@@ -96,4 +96,61 @@ export const products: Product[] = [
       },
     ],
   },
+  {
+    product_name: "access_keys",
+    product_id: "accessKeyId",
+    screens: [
+      {
+        type: "list",
+        sidemenu_link_title: "Access keys",
+        route_path: "/clients/:clientId/access-keys",
+        schema_config: {
+          get_schema_endpoint: "/accesskeys/list.json",
+        },
+        permission_config: {
+          get_action: "get_access_key_list_schema",
+        },
+      },
+      {
+        type: "create",
+        route_path: "/clients/:clientId/create-access-key",
+        schema_config: {
+          get_schema_endpoint: "/accesskeys/form.json",
+        },
+        permission_config: {
+          get_action: "get_access_key_form_schema",
+          create_action: "create_access_key",
+        },
+      },
+      {
+        type: "update",
+        route_path: "/clients/:clientId/access-keys/:accessKeyId",
+        schema_config: {
+          get_schema_endpoint: "/accesskeys/form.json",
+        },
+        permission_config: {
+          get_action: "get_entity_form_schema",
+          update_action: "update_access_key",
+          delete_action: "delete_access_key",
+        },
+      },
+    ],
+  },
+  {
+    product_name: "processing_channels",
+    product_id: "channelId",
+    screens: [
+      {
+        type: "list",
+        sidemenu_link_title: "Processing channels",
+        route_path: "/entities/:entityId/processing-channels",
+        schema_config: {
+          get_schema_endpoint: "/processingchannels/list.json",
+        },
+        permission_config: {
+          get_action: "get_processing_channel_list_schema",
+        },
+      },
+    ],
+  },
 ]

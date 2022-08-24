@@ -1,12 +1,10 @@
 {
   "config": {
-    "product_name": "clients",
     "screen_title": "Client details",
     "screen_type": ["create", "update"],
     "endpoints": {
       "create_data_endpoint": "/create",
-      "update_data_endpoint": "/update",
-      "delete_data_endpoint": "/delete"
+      "update_data_endpoint": "/update"
     }
   },
   "schema": {

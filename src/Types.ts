@@ -16,7 +16,7 @@ type FormSchema = {
 export type Data = {
   config: {
     screen_title: string
-    screen_type: ("list" | "create" | "update" | "hybrid" | "update_with_delete")[]
+    screen_type: ("list" | "create" | "update" | "hybrid")[]
     endpoints: {
       create_data_endpoint?: string
       update_data_endpoint?: string
@@ -27,7 +27,7 @@ export type Data = {
 }
 
 export type Screen = {
-  type: "list" | "create" | "update" | "hybrid" | "update_with_delete"
+  type: "list" | "create" | "update" | "hybrid"
   sidemenu_link_title?: string
   route_path: string
   schema_config: {

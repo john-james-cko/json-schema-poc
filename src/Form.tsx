@@ -159,7 +159,17 @@ export const Form: React.FC<FormProps> = ({ screen, product, type }) => {
                       </button>
                     )}
 
-                  <button type="submit">{type === "create" ? "Create" : "Save"}</button>
+                  {type === "update" &&
+                    ctx.hasPermission(
+                      product.screens.find((screen) => screen.type === "update")?.permission_config
+                        .update_action
+                    ) && <button type="submit">Update</button>}
+
+                  {type === "create" &&
+                    ctx.hasPermission(
+                      product.screens.find((screen) => screen.type === "update")?.permission_config
+                        .create_action
+                    ) && <button type="submit">Create</button>}
                 </div>
               </div>
 

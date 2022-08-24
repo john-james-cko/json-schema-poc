@@ -1,11 +1,11 @@
 {
   "config": {
-    "product_name": "entities",
-    "screen_title": "List of entities",
-    "screen_type": ["list"],
-    "endpoints": {}
+    "screen_title": "Entities",
+    "screen_type": ["list"]
   },
   "schema": {
+    "total": 2,
+    "skip": 0,
     "headers": ["ID", "Name"],
     "rows": [
       {
